@@ -18,7 +18,9 @@ let topMovies = [
  }
 ];
 
-app.use(morgan('common'));
+app.use(morgan("common")); 
+app.use(express.static("public"));
+
 
 
 // GET requests \\
@@ -33,8 +35,6 @@ res.send('this is a secret url with top secret content!')
 app.get('/movies', (req, res) => {
 res.json(topMovies);
 });
-
-app.use('/documentation.html', express.static('public'));
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
