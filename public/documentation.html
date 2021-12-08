@@ -18,14 +18,14 @@
 </tr>
 <tr>
 <td>see a movie by name</td>
-<td>/movies/:name</td>
+<td>/movies/:title</td>
 <td>GET</td>
 <td></td>
 <td>a text object coming back as 'certain movie name'</td>
 </tr>
 <tr>
 <td>see a certain movie director</td>
-<td>/movies/:name/:director</td>
+<td>/movies/director/:director</td>
 <td>GET</td>
 <td></td>
 <td>a text object coming back as 'certain movie director'
@@ -33,23 +33,47 @@
 </tr>
 <tr>
 <td>see a certain genre of movie by name</td>
-<td>/movies/:name/:director/:genre</td>
+<td>/genre/:name</td>
 <td>GET</td>
 <td></td>
-<td>a text object coming back as 'certain movie genre'</td>
+<td>a text object coming back as "Successful GET request to get data about a single genre by name"</td>
 </tr>
 <tr>
-<td>adds a new movie to the list of movies</td>
-<td>/movies</td>
-<td>POST</td>
-<td></td>
-<td>a object added in text called 'added movie'</td>
-</tr>
-<tr>
-<td>deletes a movie off the list of movies by their id</td>
-<td>/movies/:id</td>
-<td>DELETE</td>
-<td></td>
-<td>a object deleted by their id</td>
-</tr>
+    <td>adds a new movie to the lsit of favorites of the user</td>
+    <td>/users/:id/movies/:movies_id</td>
+    <td>PUT</td>
+    <td> any text</td>
+    <td>will send a text message "Successful PUT request added movies to the list of favorites"</td>
+    </tr>
+    <tr>
+        <td>deletes a new movie to the lsit of favorites of the user</td>
+        <td>/users/:id/movies/:movies_id</td>
+        <td>DELETE</td>
+        <td></td>
+        <td>will send a text message "Successful DELETE request added movies to the list of favorites"</td>
+        </tr>
+        <tr>
+            <td>registers a new user</td>
+            <td>/users
+            </td>
+            <td>POST</td>
+            <td></td>
+            <td>will send a text message "Successful POST request to register new user"</td>
+            </tr>
+            <tr>
+                <td>deletes request to register new user</td>
+                <td>/users
+                </td>
+                <td>DELETE</td>
+                <td></td>
+                <td>will send a text message "Successful DELETE request to register new user"</td>
+                </tr>
+                <tr>
+                    <td>shows directors name</td>
+                    <td>/director/:name
+                    </td>
+                    <td>GET</td>
+                    <td></td>
+                    <td>will send a text message "Successful GET request to get data about a single director by name"</td>
+                    </tr>
 </table>
