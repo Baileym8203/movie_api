@@ -1,3 +1,55 @@
 <h1> the title for the api is movie_api</h1>
 <p> this api will allow you to return almost anything you want about a given movie IE description, actors movie lists etc.
     It will be able to load all of this data to the server asyncronously </p>
+<table>
+<tr>
+<th>Buisness Logic</th>
+<th>URL</th>
+<th>HTTP Method</th>
+<th>Request body data format</th>
+<th>Response body data format</th>
+</tr>
+<tr>
+<td>See all movies</td>
+<td>/movies</td>
+<td>GET</td>
+<td></td>
+<td>a text object stating 'all movies'</td>
+</tr>
+<tr>
+<td>see a movie by name</td>
+<td>/movies/:name</td>
+<td>GET</td>
+<td></td>
+<td>a text object coming back as 'certain movie name'</td>
+</tr>
+<tr>
+<td>see a certain movie director</td>
+<td>/movies/:name/:director</td>
+<td>GET</td>
+<td></td>
+<td>a text object coming back as 'certain movie director'
+</td>
+</tr>
+<tr>
+<td>see a certain genre of movie by name</td>
+<td>/movies/:name/:director/:genre</td>
+<td>GET</td>
+<td></td>
+<td>a text object coming back as 'certain movie genre'</td>
+</tr>
+<tr>
+<td>adds a new movie to the list of movies</td>
+<td>/movies</td>
+<td>POST</td>
+<td></td>
+<td>a object added in text called 'added movie'</td>
+</tr>
+<tr>
+<td>deletes a movie off the list of movies by their id</td>
+<td>/movies/:id</td>
+<td>DELETE</td>
+<td></td>
+<td>a object deleted by their id</td>
+</tr>
+</table>
