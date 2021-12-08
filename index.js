@@ -95,13 +95,13 @@ app.delete("/movies/:id", (req, res) => {
 });
 
 //adds movie to the list of favorites of a user
-app.post("/users/:id/movies/:movie_id", (req, res) => {
-  res.send("Successful POST added movies to the list of favorites");
+app.put("/users/:id/movies/:movie_id", (req, res) => {
+  res.send("Successful PUT request added movies to the list of favorites");
 });
 
 //removes movie from the list of favorites of a user
-app.post("/users/:id/movies/:movie_id", (req, res) => {
-  res.send("Successful POST added movies to the list of favorites");
+app.delete("/users/:id/movies/:movie_id", (req, res) => {
+  res.send("Successful DELETE request added movies to the list of favorites");
 });
 
 app.post("/users", (req, res) => {
