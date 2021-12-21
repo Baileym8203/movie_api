@@ -107,41 +107,96 @@ Featured: '-------'
     }</td>
 </tr>
 <tr>
-    <td>adds a new movie to the lsit of favorites of the user</td>
+    <td>adds a new movie to the list of favorites of the user</td>
     <td>/users/:id/movies/:movies_id</td>
     <td>PUT</td>
-    <td> any text</td>
-    <td>will send a text message "Successful PUT request added movies to the list of favorites"</td>
+    <td> in json format
+        {
+            id_ -------------,
+            Username: '---------',
+            Password: '-------',
+            Email: '-------',
+            Birthday: '-------------',
+            FavoriteMovies: ['------------']
+            }
+        </td>
+    <td>a json formatted response showing the new user will come back 
+        {
+        id_ -------------,
+        Username: '---------',
+        Password: '-------',
+        Email: '-------',
+        Birthday: '-------------',
+        FavoriteMovies: ['------------']
+        }
+    </td>
     </tr>
     <tr>
-        <td>deletes a new movie to the lsit of favorites of the user</td>
+        <td>deletes a favorite movie from the users favorite movies</td>
         <td>/users/:id/movies/:movies_id</td>
         <td>DELETE</td>
         <td></td>
-        <td>will send a text message "Successful DELETE request added movies to the list of favorites"</td>
+        <td>will send a message in format json as shown
+        FavoriteMovies: '------------' has been deleted!
+        </td>
         </tr>
         <tr>
             <td>registers a new user</td>
             <td>/users
             </td>
             <td>POST</td>
-            <td></td>
-            <td>will send a text message "Successful POST request to register new user"</td>
+            <td>{
+                id_ -------------,
+                Username: '---------',
+                Password: '-------',
+                Email: '-------',
+                Birthday: '-------------',
+                FavoriteMovies: ['------------']
+                }</td>
+            <td>will send a message in formatted json like shown
+                {
+                    id_ -------------,
+                    Username: '---------',
+                    Password: '-------',
+                    Email: '-------',
+                    Birthday: '-------------',
+                    FavoriteMovies: ['------------']
+                    }
+                showing the input you PUT to be sent to the database
+
+            </td>
             </tr>
             <tr>
                 <td>deletes request to register new user</td>
-                <td>/users
+                <td>/users/:Username
                 </td>
                 <td>DELETE</td>
                 <td></td>
-                <td>will send a text message "Successful DELETE request to register new user"</td>
+                <td> Username: '---------' was deleted</td>
                 </tr>
                 <tr>
-                    <td>shows directors name</td>
+                    <td>gets the director based on name</td>
                     <td>/director/:name
                     </td>
                     <td>GET</td>
                     <td></td>
-                    <td>will send a text message "Successful GET request to get data about a single director by name"</td>
+                    <td>a json formatted response showing the director based on name 
+                        {
+                        id_ -------------,
+                        Title: '-----------',
+                        description: '----------',
+                        Genre: {
+                        Name: '---------',
+                        Description: '----------'
+                        },
+                        Director: {
+                        Name: '--------',
+                        Bio: '-------',
+                        Birth: '--------',
+                        Death: '------'
+                        },
+                        ImagePath: '-------',
+                        Featured: '-------'
+                        }</td>
                     </tr>
 </table>
