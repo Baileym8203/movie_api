@@ -3,7 +3,7 @@
     It will be able to load all of this data to the server asyncronously </p>
 <table>
 <tr>
-<th>Buisness Logic</th>
+<th>Business Logic</th>
 <th>URL</th>
 <th>HTTP Method</th>
 <th>Request body data format</th>
@@ -14,21 +14,72 @@
 <td>/movies</td>
 <td>GET</td>
 <td></td>
-<td>a text object stating 'all movies'</td>
+<td>a json formatted response showing all the movies
+    {
+    id_ -------------,
+    Title: '-----------',
+    description: '----------',
+    Genre: {
+    Name: '---------',
+    Description: '----------'
+    },
+    Director: {
+    Name: '--------',
+    Bio: '-------',
+    Birth: '--------',
+    Death: '------'
+    },
+    ImagePath: '-------',
+    Featured: '-------'
+    }</td>
 </tr>
 <tr>
 <td>see a movie by name</td>
 <td>/movies/:title</td>
 <td>GET</td>
 <td></td>
-<td>a text object coming back as 'certain movie name'</td>
+<td>a json formatted response showing all the movies with a certain title as shown 
+    {
+    id_ -------------,
+    Title: '-----------',
+    description: '----------',
+    Genre: {
+    Name: '---------',
+    Description: '----------'
+    },
+    Director: {
+    Name: '--------',
+    Bio: '-------',
+    Birth: '--------',
+    Death: '------'
+    },
+    ImagePath: '-------',
+    Featured: '-------'
+    }</td>
 </tr>
 <tr>
 <td>see a certain movie director</td>
 <td>/movies/director/:director</td>
 <td>GET</td>
 <td></td>
-<td>a text object coming back as 'certain movie director'
+<td>a json formatted response showing all the movies with a certain director as shown 
+{
+id_ -------------,
+Title: '-----------',
+description: '----------',
+Genre: {
+Name: '---------',
+Description: '----------'
+},
+Director: {
+Name: '--------',
+Bio: '-------',
+Birth: '--------',
+Death: '------'
+},
+ImagePath: '-------',
+Featured: '-------'
+}
 </td>
 </tr>
 <tr>
@@ -36,7 +87,24 @@
 <td>/genre/:name</td>
 <td>GET</td>
 <td></td>
-<td>a text object coming back as "Successful GET request to get data about a single genre by name"</td>
+<td>a json formatted response showing all the movies with a certain Genre as shown
+    {
+    id_ -------------,
+    Title: '-----------',
+    description: '----------',
+    Genre: {
+    Name: '---------',
+    Description: '----------'
+    },
+    Director: {
+    Name: '--------',
+    Bio: '-------',
+    Birth: '--------',
+    Death: '------'
+    },
+    ImagePath: '-------',
+    Featured: '-------'
+    }</td>
 </tr>
 <tr>
     <td>adds a new movie to the lsit of favorites of the user</td>
