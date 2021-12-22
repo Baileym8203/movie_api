@@ -28,7 +28,7 @@ app.get("/movies", (req, res) => {//done
   });
 
 //Get a single movie by title
-app.get("/movies/:Title", (req, res) => {
+app.get("/movies/:Title", (req, res) => {//done
   Movies.findOne({Title: req.params.Title})
   .then((movie) => {
     res.json(movie);
@@ -40,8 +40,8 @@ app.get("/movies/:Title", (req, res) => {
   });
 
 //Get list of movies by director
-app.get("/movies/Director/:Director", (req, res) => {
-  Movies.findOne({Director: req.params.Director})
+app.get("/movies/Director/:Director", (req, res) => {//done
+  Movies.find({'Director.Name': req.params.Director})
   .then((movie) => {
   res.json(movie);
   })
@@ -52,11 +52,11 @@ app.get("/movies/Director/:Director", (req, res) => {
 });
 
 //adds movie to the list of favorites of a user
-app.post("/users/:id/movies/:id", (req, res) => {
+app.put("/users/:user_id/movies/:movie_id", (req, res) => { //isn't working
   Users.findOneAndUpdate(
-  { Username: req.params.Username },
+  { _id: req.params.user_id },
   {
-  $push: { FavoriteMovies: req.params.id },
+  $push: { FavoriteMovies: req.params.movie_id },
   },
   { new: true }, // This line makes sure that the updated document is returned
   (err, updatedUser) => {
@@ -70,8 +70,8 @@ app.post("/users/:id/movies/:id", (req, res) => {
   );
   });
 //removes movie from the list of favorites of a user
-app.delete("/users/:id/movies/:movie_id", (req, res) => {
-  Users.findOneAndRemove({FavoriteMovies: req.params.FavoriteMovies})
+app.delete("/users/:id/movies/:movie_id", (req, res) => {//isn't working
+  Users.findOneAndUpdate({FavoriteMovies: req.params.FavoriteMovies})
  .then((user) => {
   if (!user) {
   res.status(400).send(req.params.FavoriteMovies + ' was not found');
@@ -121,7 +121,7 @@ res.status(500).send('error ' + err);
  });
 });
 
-app.put('/users/:Username', (req, res) => {
+app.put('/users/:Username', (req, res) => {//isn't working
 Users.findOneAndUpdate({ Username: req.params.Username}, {$set:
  {
 Username: req.body.Username,
@@ -168,20 +168,8 @@ Users.findOneAndRemove({Username: req.params.Username})
 
 });
 
-// gets the data about a single director, by name \\
-app.get("/directors/:name", (req, res) => {
-  Movies.findOne({Director: req.params.Director})
-  .then((movie) => {
-  res.json(movie)
-  })
-  .catch((err) => {
-  console.error(err);
-  res.status(500).send('error: ' + err);
-  })
-});
-
-app.get("/genre/:name", (req, res) => {
- Movies.findOne({Genre: req.params.Genre})
+app.get("/movies/Genre/:Genre", (req, res) => {//done
+ Movies.find({'Genre.Name': req.params.Genre})
  .then((movie) => {
  res.json(movie)
  })
