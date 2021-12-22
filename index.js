@@ -39,6 +39,29 @@ app.get("/movies/:Title", (req, res) => {//done
    });
   });
 
+  app.post('/movies', (req, res) => {//done
+  Movies.findOne({Title: req.body.Title})
+  .then((movie) => {
+  if (movie) {
+  return res.status(400).send(req.body.Title + 'already exists');
+  } else {
+  Movies
+   .create({
+   Title: req.body.Title,
+   Description: req.body.Description,
+   Genre: req.body.Genre,
+   Director: req.body.Director,
+   ImagePath: req.body.ImagePath,
+   })
+   .then((movie) => {res.status(201).json(movie)})
+   .catch((err) => {
+    console.error(err);
+    res.status(500).send('error: ' + err);
+   })
+  }
+  })
+});
+
 //Get list of movies by director
 app.get("/movies/Director/:Director", (req, res) => {//done
   Movies.find({'Director.Name': req.params.Director})
