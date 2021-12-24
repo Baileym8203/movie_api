@@ -16,9 +16,13 @@
 
   const Movies = Models.Movie;
   const Users = Models.User;
-  const cors = require('cors');
   const app = express();
-  let allowedOrigins = ['https://bestmoviecentral.herokuapp.com', '#'];
+  
+  
+  
+  app.use(morgan("common"));
+  app.use(bodyParser.json());
+  const cors = require('cors');
   app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
@@ -29,10 +33,7 @@
     return callback(null, true);
     }
   }));
-  
-  app.use(morgan("common"));
-  app.use(bodyParser.json());
-
+  let allowedOrigins = ['*'];
   let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
