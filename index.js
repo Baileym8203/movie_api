@@ -4,8 +4,8 @@
   const uuid = require("uuid");
   const mongoose = require('mongoose');
   const Models = require('./models.js');
-  /*mongoose.connect('mongodb://localhost:27017/[myFlixDB]', {useNewUrlParser: true, useUnifiedTopology:
-  true});*/
+  //mongoose.connect('mongodb://localhost:27017/[myFlixDB]', {useNewUrlParser: true, useUnifiedTopology:
+  //true});
   mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology:
   true});
 
@@ -252,7 +252,7 @@
   res.status(500).send('error ' + err);
   });
   });
-
+  
   app.delete("/users/:Username", passport.authenticate('jwt', {session: false}), (req, res) => {//done
   Users.findOneAndRemove({Username: req.params.Username})
   .then((user) => {
