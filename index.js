@@ -49,7 +49,7 @@
     res.status(500).send('error ' + err);
     });
     });
-  
+  // app home screen
   app.get('/', (req, res) => {
   res.sendFile('index.html', { root: __dirname });
   });
