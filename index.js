@@ -11,6 +11,11 @@
 
 
   // this code only allows certain access to certain origins to get info from the API
+  
+  const { check, validationResult } = require('express-validator');
+
+  const Movies = Models.Movie;
+  const Users = Models.User;
   const cors = require('cors');
   let allowedOrigins = ['#', '#'];
   app.use(cors({
@@ -23,12 +28,6 @@
     return callback(null, true);
     }
   }));
-  
-  const { check, validationResult } = require('express-validator');
-
-  const Movies = Models.Movie;
-  const Users = Models.User;
-
   const app = express();
   app.use(morgan("common"));
   app.use(bodyParser.json());
