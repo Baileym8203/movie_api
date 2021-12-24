@@ -7,7 +7,7 @@
   /*mongoose.connect('mongodb://localhost:27017/[myFlixDB]', {useNewUrlParser: true, useUnifiedTopology:
   true});*/
   mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology:
-  true})
+  true});
 
 
   // this code only allows certain access to certain origins to get info from the API
@@ -48,7 +48,11 @@
     res.status(500).send('error ' + err);
     });
     });
-
+  
+    app.get('/', (req, res) => {
+  res.sendFile('index.html', {root: __dirname});
+  });
+  
   // Add a movie
   app.post('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
     Movies.findOne({ Title: req.body.Title })
