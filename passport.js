@@ -21,6 +21,11 @@ if (!user) {
 console.log('incorrect username');
 return callback(null, false, {message: 'incorrect username or password.'});
 }
+// this will validate the users password being null or false when inputted!
+if (!user.validatePassword(password)) {
+ console.log('incorrect password');
+ return callback(null, false, {message: 'Incorrect password'});
+}
 
 console.log('finished');
 return callback(null, user);
