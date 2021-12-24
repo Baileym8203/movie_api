@@ -48,11 +48,6 @@
     res.status(500).send('error ' + err);
     });
     });
-  
-    app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: __dirname});
-  });
-  
   // Add a movie
   app.post('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
     Movies.findOne({ Title: req.body.Title })
