@@ -108,17 +108,13 @@ Featured: '-------'
 </tr>
 <tr>
     <td>adds a new movie to the list of favorites of the user</td>
-    <td>/users/:id/movies/:movies_id</td>
+    <td>/users/:Username/movies/:movies_id</td>
     <td>PUT</td>
     <td> in json format
         {
-            id_ -------------,
-            Username: '---------',
-            Password: '-------',
-            Email: '-------',
-            Birthday: '-------------',
-            FavoriteMovies: ['------------']
-            }
+        
+        FavoriteMovies: ['------------']
+        }
         </td>
     <td>a json formatted response showing the new user will come back 
         {
@@ -133,11 +129,11 @@ Featured: '-------'
     </tr>
     <tr>
         <td>deletes a favorite movie from the users favorite movies</td>
-        <td>/users/:id/movies/:movies_id</td>
+        <td>/users/:Username/movies/:movies_id</td>
         <td>DELETE</td>
         <td></td>
-        <td>will send a message in format json as shown
-        FavoriteMovies: '------------' has been deleted!
+        <td>will send a message in text as shown
+        '------------' has been deleted!
         </td>
         </tr>
         <tr>

@@ -4,8 +4,11 @@
   const uuid = require("uuid");
   const mongoose = require('mongoose');
   const Models = require('./models.js');
-  mongoose.connect('mongodb://localhost:27017/[myFlixDB]', {useNewUrlParser: true, useUnifiedTopology:
-  true});
+  /*mongoose.connect('mongodb://localhost:27017/[myFlixDB]', {useNewUrlParser: true, useUnifiedTopology:
+  true});*/
+  mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology:
+  true})
+
 
   // this code only allows certain access to certain origins to get info from the API
   const cors = require('cors');
@@ -293,3 +296,5 @@
   app.listen(port, '0.0.0.0',() => {
     console.log("listening on port " + port);
   });
+
+  
