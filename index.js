@@ -17,8 +17,8 @@
   const Movies = Models.Movie;
   const Users = Models.User;
   const cors = require('cors');
-  let allowedOrigins = ['#', '#'];
   const app = express();
+  let allowedOrigins = ['#', '#'];
   app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
@@ -29,7 +29,7 @@
     return callback(null, true);
     }
   }));
-  const app = express();
+  
   app.use(morgan("common"));
   app.use(bodyParser.json());
 
