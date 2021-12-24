@@ -18,6 +18,7 @@
   const Users = Models.User;
   const cors = require('cors');
   let allowedOrigins = ['#', '#'];
+  const app = express();
   app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
