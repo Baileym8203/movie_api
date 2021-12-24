@@ -33,10 +33,10 @@
   app.use(morgan("common"));
   app.use(bodyParser.json());
 
-  let auth = require('./auth')(app);
+  let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
-
+  
   app.use(express.static("public"));
   //see all movies
   app.get("/movies", passport.authenticate('jwt', {session: false}), (req, res) => {//done
