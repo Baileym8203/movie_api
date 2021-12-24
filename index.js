@@ -18,7 +18,7 @@
   const Users = Models.User;
   const cors = require('cors');
   const app = express();
-  let allowedOrigins = ['#', '#'];
+  let allowedOrigins = ['https://bestmoviecentral.herokuapp.com', '#'];
   app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
