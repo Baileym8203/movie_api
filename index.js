@@ -280,7 +280,7 @@
     res.status(500).send('error: ' + err);
     })
   });
-
+  //genre by name
   app.get("/genre/:name", passport.authenticate('jwt', {session: false}), (req, res) => {
   Movies.findOne({'Genre.Name': req.params.name})
   .then((movie) => {
