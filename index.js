@@ -155,7 +155,7 @@
 
   });
 
-
+  // will create a new user 
   app.post("/users", [
   //these are all validations for the username and password in the server side!
   check('Username', 'Username is required').isLength({min: 5}),
@@ -196,7 +196,7 @@
     });
   });
   
-
+ // will get all of the users in the database
   app.get('/users', passport.authenticate('jwt', {session: false}), (req, res) =>  {//done
   Users.find()
   .then((users) => {
@@ -207,7 +207,7 @@
   res.status(500).send('error ' + err);
   });
   });
-
+  //updates user
   app.put('/users/:Username',[
     //these are all validations for the username and password in the server side!
     check('Username', 'Username is required').isLength({min: 5}),
@@ -241,7 +241,7 @@
   }
   }));
   });
-
+  // this will get a user by username 
   app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {//done
   Users.findOne({Username: req.params.Username})
   .then((user) => {
@@ -252,7 +252,7 @@
   res.status(500).send('error ' + err);
   });
   });
-  
+  // this will delete a user by username
   app.delete("/users/:Username", passport.authenticate('jwt', {session: false}), (req, res) => {//done
   Users.findOneAndRemove({Username: req.params.Username})
   .then((user) => {

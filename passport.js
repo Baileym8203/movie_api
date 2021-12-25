@@ -7,6 +7,7 @@ let Users = Models.User,
 JWTStrategy = passportJWT.Strategy,
 ExtractJWT = passportJWT.ExtractJwt;
 
+// creates the username and password requirements 
 passport.use(new localStrategy({
 usernameField: 'Username',
 passwordField: 'Password'
@@ -32,7 +33,7 @@ return callback(null, user);
 
   });
 }));
-
+// after login will confirm the JWT token as correct with the given user 
 passport.use(new JWTStrategy({
 jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
 secretOrKey: 'your_jwt_secret'

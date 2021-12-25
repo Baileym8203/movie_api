@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+// the needed requirements for POST movie in body 
 let movieSchema = mongoose.Schema({
 Title: {type: String, required: true},
 Description: {type: String, required: true},
@@ -15,7 +16,7 @@ Bio: String
 ImagePath: String,
 Featured: Boolean
 });
-
+// the needed requirements and validations for user creation/ POST user
 let userSchema = mongoose.Schema({
 Username: {type: String, required: true},
 Password: {type: String, required: true},
