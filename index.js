@@ -40,7 +40,7 @@
   
   app.use(express.static("public"));
   //see all movies
-  app.get("/movies", passport.authenticate('jwt', {session: false}), (req, res) => {//done
+  app.get("/movies", /*passport.authenticate('jwt', {session: false}),*/ (req, res) => {//done
     Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -56,7 +56,7 @@
   });
   
     // Add a movie
-  app.post('/movies', /*passport.authenticate('jwt', {session: false}),*/ (req, res) => {
+  app.post('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
     Movies.findOne({ Title: req.body.Title })
       .then((movie) => {
         if (movie) {
