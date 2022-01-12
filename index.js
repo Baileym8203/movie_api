@@ -56,7 +56,7 @@
   });
   
     // Add a movie
-  app.post('/movies', passport.authenticate('jwt', {session: false}), (req, res) => {
+  app.post('/movies', /*passport.authenticate('jwt', {session: false}),*/ (req, res) => {
     Movies.findOne({ Title: req.body.Title })
       .then((movie) => {
         if (movie) {
