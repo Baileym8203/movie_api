@@ -33,7 +33,7 @@
     return callback(null, true);
     }
   }));
-  let allowedOrigins = ['*'];
+  let allowedOrigins = ['http:localhost:1234'];
   let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
