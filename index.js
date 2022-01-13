@@ -8,7 +8,7 @@
   //true});
   mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology:
   true});
-  access-control-allow-Origins
+ 
 
   // this code only allows certain access to certain origins to get info from the API
   
