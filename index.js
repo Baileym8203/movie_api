@@ -23,8 +23,8 @@
   app.use(morgan("common"));
   app.use(bodyParser.json());
   const cors = require('cors');
-  app.use(cors());
-  /*app.use(cors({
+  //app.use(cors());
+  app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
     if(allowedOrigins.indexOf(origin) === -1){
@@ -35,7 +35,8 @@
     }
   }));
   
-  let allowedOrigins = ['http:localhost:1234', 'http:localhost:8080'];*/
+  let allowedOrigins = ['http:localhost:1234', 'http:localhost:8080', 'https://github.com'];
+  // this will be fixed later to allow specific origin access
   let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
