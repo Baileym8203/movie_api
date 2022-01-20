@@ -23,8 +23,8 @@
   app.use(morgan("common"));
   app.use(bodyParser.json());
   const cors = require('cors');
-  //app.use(cors()); if allowed all domains!
-  app.use(cors({
+  app.use(cors()); //allowed all domains!
+  /*(app.use(cors({
     origin: (origin, callback) => {
     if(!origin) return callback(null, true);
     if(allowedOrigins.indexOf(origin) === -1){
@@ -33,7 +33,7 @@
     }
     return callback(null, true);
     }
-  }));
+  }));*/
   
   let allowedOrigins = ['localhost:1234', 'localhost:8080', 'https://github.com', 'https://www.wikipedia.org/' ];
   let auth = require('./auth.js')(app);
