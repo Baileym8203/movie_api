@@ -35,14 +35,14 @@
     }
   }));*/
   
-  let allowedOrigins = ['localhost:1234', 'localhost:8080', 'https://github.com', 'https://www.wikipedia.org/' ];
+  //let allowedOrigins = ['localhost:1234', 'localhost:8080', 'https://github.com', 'https://www.wikipedia.org/' ];
   let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
   
   app.use(express.static("public"));
   //see all movies
-  app.get("/movies", /*passport.authenticate('jwt', {session: false}),*/ (req, res) => {//done
+  app.get("/movies", passport.authenticate('jwt', {session: false}), (req, res) => {//done
     Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
