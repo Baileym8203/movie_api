@@ -36,7 +36,7 @@
   }))
   );
   
-  let allowedOrigins = ['http:localhost:1234', 'http:localhost:8080', 'https://github.com', 'https://www.wikipedia.org/' ];
+  let allowedOrigins = ['http:localhost:1234', 'http:localhost:8080', 'https://github.com', 'https://www.wikipedia.org/', 'https://dashboard.heroku.com/apps' ];
   let auth = require('./auth.js')(app);
   const passport = require('passport');
   require('./passport');
