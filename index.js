@@ -245,7 +245,8 @@
   });
   // this will get a user by username 
   app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {//done
-  Users.findOne({Username: req.params.Username})
+  Users.findOne({Username: req.params.Username}).populate('FavoriteMovies')
+  // add method populate!
   .then((user) => {
   res.json(user);
   })
