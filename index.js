@@ -40,6 +40,10 @@
   const passport = require('passport');
   require('./passport');
   
+  app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", )
+  })
+
   app.use(express.static("public"));
   //see all movies
   app.get("/movies", passport.authenticate('jwt', {session: false}), (req, res) => {//done
@@ -245,7 +249,7 @@
   });
   // this will get a user by username 
   app.get('/users/:Username', passport.authenticate('jwt', {session: false}), (req, res) => {//done
-  Users.findOne({Username: req.params.Username}).populate('FavoriteMovies')
+  Users.findOne({Username: req.params.Username})//.populate('FavoriteMovies')
   // add method populate!
   .then((user) => {
   res.json(user);
