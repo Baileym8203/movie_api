@@ -31,7 +31,7 @@ userSchema.statics.hashPassword = (password) => {
 };
 
 userSchema.methods.validatePassword = function(password) {
- return bcrypt.compare(password, this.password);
+ return bcrypt.compareSync(password, this.password);
 };// don't define methods with => only regular functions!
 
 let Movie = mongoose.model('Movie', movieSchema);
