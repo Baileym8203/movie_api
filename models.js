@@ -26,12 +26,12 @@ FavoriteMovies: [{type: mongoose.Schema.Types.ObjectId,
 ref: 'movie'}]
 });
 
-userSchema.statics.hashPassword = (password) => {
- return bcrypt.hashSync(password, 10);
+userSchema.statics.hashPassword = (Password) => {
+ return bcrypt.hash(Password, 10);
 };
 
-userSchema.methods.validatePassword = function(password) {
- return bcrypt.compareSync(password, this.password);
+userSchema.methods.validatePassword = function(Password) {
+ return bcrypt.compare(Password, this.Password);
 };// don't define methods with => only regular functions!
 
 let Movie = mongoose.model('Movie', movieSchema);
