@@ -29,7 +29,7 @@ ref: 'movie'}]
 userSchema.statics.hashPassword = (Password) => {
  return bcrypt.hash(Password, 10);
 };
-
+// is allowing any password to be defined in as logged in??
 userSchema.methods.validatePassword = function(Password) {
  return bcrypt.compare(Password, this.Password);
 };// don't define methods with => only regular functions!
